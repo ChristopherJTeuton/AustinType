@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- This line declares the document type and version of HTML being used -->
+<html lang="en">
+<!-- The html tag encloses the entire HTML document -->
+<head>
+  <!-- The head tag contains meta-information about the HTML document -->
+  <meta charset="UTF-8">
+  <!-- Specifies the character encoding for the HTML document -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Ensures the webpage is responsive by setting the viewport to match the device's width -->
+  <title>Ben Typing</title>
+  <!-- Sets the title of the webpage, displayed in the browser tab -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Links to an external CSS file for styling the webpage -->
+</head>
+<body>
+  <!-- The body tag contains the content of the HTML document -->
+  <div id="gameContainer">
+    <!-- Container for the entire game interface -->
+    <div id="startScreen">
+      <!-- Screen displayed at the start of the game -->
+      <h1>Ben Typin'</h1>
+      <!-- Title of the game -->
+      <button id="startButton">Start Game</button>
+      <!-- Button to start the game -->
+      <p>LEARN TO TYPE!</p>
+      <!-- Instructional text for the game -->
+      <div id="backgroundSelect">
+        <!-- Section for selecting the game background -->
+        <h2>Choose Your Background:</h2>
+        <!-- Heading for the background selection section -->
+        <div class="backgroundOption" data-bg="background.png">
+          <!-- Option for selecting the first background -->
+          <img src="background_thumb.png" alt="Background 1">
+          <!-- Thumbnail image for the first background -->
+        </div>
+        <div class="backgroundOption locked" data-bg="background2.png">
+          <!-- Option for selecting the second background, initially locked -->
+          <img src="background2_thumb.png" alt="Background 2">
+          <!-- Thumbnail image for the second background -->
+          <img src="lock.png" alt="Lock" class="lock-overlay">
+          <!-- Lock image overlay for the second background -->
+        </div>
+        <div class="backgroundOption locked" data-bg="background3.png">
+          <!-- Option for selecting the third background, initially locked -->
+          <img src="background3_thumb.png" alt="Background 3">
+          <!-- Thumbnail image for the third background -->
+          <img src="lock.png" alt="Lock" class="lock-overlay">
+          <!-- Lock image overlay for the third background -->
+        </div>
+        <div class="backgroundOption locked" data-bg="background4.png">
+          <!-- Option for selecting the fourth background, initially locked -->
+          <img src="background4_thumb.png" alt="Background 4">
+          <!-- Thumbnail image for the fourth background -->
+          <img src="lock.png" alt="Lock" class="lock-overlay">
+          <!-- Lock image overlay for the fourth background -->
+        </div>
+      </div>
+      <div id="playerSelect">
+        <!-- Section for selecting the player character -->
+        <h2>Choose Your Player:</h2>
+        <!-- Heading for the player selection section -->
+        <div class="playerOption" data-player="player.png">
+          <!-- Option for selecting the first player character -->
+          <img src="player_thumb.png" alt="Player 1">
+          <!-- Thumbnail image for the first player character -->
+        </div>
+        <div class="playerOption locked" data-player="player2.png">
+          <!-- Option for selecting the second player character, initially locked -->
+          <img src="player2_thumb.png" alt="Player 2">
+          <!-- Thumbnail image for the second player character -->
+          <img src="lock.png" alt="Lock" class="lock-overlay">
+          <!-- Lock image overlay for the second player character -->
+        </div>
+        <div class="playerOption locked" data-player="player3.png">
+          <!-- Option for selecting the third player character, initially locked -->
+          <img src="player3_thumb.png" alt="Player 3">
+          <!-- Thumbnail image for the third player character -->
+          <img src="lock.png" alt="Lock" class="lock-overlay">
+          <!-- Lock image overlay for the third player character -->
+        </div>
+        <div class="playerOption locked" data-player="player4.png">
+          <!-- Option for selecting the fourth player character, initially locked -->
+          <img src="player4_thumb.png" alt="Player 4">
+          <!-- Thumbnail image for the fourth player character -->
+          <img src="lock.png" alt="Lock" class="lock-overlay">
+          <!-- Lock image overlay for the fourth player character -->
+        </div>
+      </div>
+    </div>
+    <canvas id="gameCanvas" width="1200" height="800"></canvas>
+    <!-- Canvas element where the game graphics are drawn -->
+    <input type="text" id="typedWord" autocomplete="off" placeholder="Type the word here..." />
+    <!-- Input field for typing the words displayed on the asteroids -->
+    <div id="scoreDisplay">Score: 0</div>
+    <!-- Display for the player's current score -->
+    <div id="audioControls">
+      <!-- Controls for adjusting the game's audio settings -->
+      <label for="volumeSlider">Volume:</label>
+      <!-- Label for the volume slider -->
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+      <!-- Slider for adjusting the game's volume -->
+      <button id="muteButton">Mute</button>
+      <!-- Button to mute or unmute the game's audio -->
+    </div>
+  </div>
+  <div id="gameOverScreen" class="hidden">
+    <!-- Screen displayed when the game is over -->
+    <h1>Game Over</h1>
+    <!-- Title for the game over screen -->
+    <p>Spell, don't smell!</p>
+    <!-- Message displayed on the game over screen -->
+    <p>Your final score: <span id="finalScore"></span></p>
+    <!-- Display for the player's final score -->
+    <button id="restartButton">Try Again</button>
+    <!-- Button to restart the game -->
+  </div>
+  <div id="winScreen" class="hidden">
+    <!-- Screen displayed when the player wins the game -->
+    <h1>Congratulations!</h1>
+    <!-- Title for the win screen -->
+    <p>You've completed all levels!</p>
+    <!-- Message displayed on the win screen -->
+    <p>You're a typing master!</p>
+    <!-- Additional message displayed on the win screen -->
+    <p>Your final score: <span id="finalScoreWin"></span></p>
+    <!-- Display for the player's final score -->
+    <button id="restartButtonWin">Play Again?</button>
+    <!-- Button to restart the game -->
+  </div>
+  <script src="game.js"></script>
+  <!-- Link to the external JavaScript file that contains the game's logic -->
+</body>
+</html>

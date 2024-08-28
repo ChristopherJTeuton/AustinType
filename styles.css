@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  background-image: url('space_background.jpg');
+  background-size: cover;
+  color: white;
+}
+/* Styles for the body element to set up the overall layout and appearance of the webpage */
+
+#startScreen,
+#gameOverScreen,
+#winScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding-top: 200px;
+}
+/* Styles for the start screen, game over screen, and win screen to overlay the entire viewport */
+
+#startScreen h1,
+#gameOverScreen h1,
+#winScreen h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+/* Styles for the headings on the start screen, game over screen, and win screen */
+
+#startScreen button,
+#gameOverScreen button,
+#winScreen button {
+  padding: 15px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin: 10px;
+  transition: background-color 0.3s;
+}
+/* Styles for the buttons on the start screen, game over screen, and win screen */
+
+#startScreen button:hover,
+#gameOverScreen button:hover,
+#winScreen button:hover {
+  background-color: #0b57c4;
+}
+/* Hover effect for the buttons on the start screen, game over screen, and win screen */
+
+#backgroundSelect,
+#playerSelect {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+/* Styles for the background and player selection sections to arrange items horizontally */
+
+.backgroundOption,
+.playerOption {
+  margin: 0 10px;
+  cursor: pointer;
+  border: 2px solid #1a73e8;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+  position: relative;
+}
+/* Styles for the background and player selection options */
+
+.backgroundOption img,
+.playerOption img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+/* Styles for the images within the background and player selection options */
+
+.backgroundOption:hover,
+.playerOption:hover {
+  border-color: #0b57c4;
+}
+/* Hover effect for the background and player selection options */
+
+.backgroundOption.selected,
+.playerOption.selected {
+  border-color: yellow;
+}
+/* Styles for the selected background and player options */
+
+.backgroundOption.locked,
+.playerOption.locked {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+/* Styles for the locked background and player options */
+
+.lock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Styles for the lock overlay image */
+
+#gameContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Styles for the game container to center and arrange its children */
+
+#gameCanvas {
+  display: block;
+  background-image: url('background.png');
+  background-size: cover;
+  border: 2px solid #1a73e8;
+  border-radius: 10px;
+}
+/* Styles for the game canvas element */
+
+#typedWord {
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 20px;
+  width: 300px;
+  text-align: center;
+  border: 2px solid #1a73e8;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+/* Styles for the input field where the player types the words */
+
+#scoreDisplay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+/* Styles for the score display element */
+
+#audioControls {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+/* Styles for the audio controls section */
+
+#audioControls label {
+  color: white;
+  margin-right: 10px;
+}
+/* Styles for the label in the audio controls section */
+
+#audioControls input[type="range"] {
+  width: 200px;
+}
+/* Styles for the range input in the audio controls section */
+
+#audioControls button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s;
+}
+/* Styles for the button in the audio controls section */
+
+#audioControls button:hover {
+  background-color: #0b57c4;
+}
+/* Hover effect for the button in the audio controls section */
+
+.explosion {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+/* Styles for the explosion animation */
+
+.hidden {
+  display: none;
+}
+/* Utility class to hide elements */
