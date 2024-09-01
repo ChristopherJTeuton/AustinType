@@ -44,11 +44,11 @@ const gameOverSound = new Audio('gameover_sound.mp3');
 
 // Defining the words for each level
 const words = [
-  ['CAT', 'DOG', 'MOM', 'EVE', 'DAD', 'DIG', 'DUG', 'PAT', 'RUN', 'SUN', 'FUN', 'HAT', 'BAT', 'BIG', 'BUG', 'MUG', 'BEN', 'CUP', 'CUT', 'TOY', 'BOX', 'FAN', 'POT', 'RED', 'HOP', 'PIN', 'WEB', 'WET', 'JET', 'PIG', 'LOG', 'RAT', 'ANT', 'MAP', 'CAR'],
-  ['BOOK', 'AELA', 'CAKE', 'DUST', 'FROG', 'CATS', 'DOGS', 'DIGS', 'SUNS', 'SONS', 'HATS', 'BATS', 'BUGS', 'GIFT', 'HOPE', 'JUMP', 'KITE', 'LAMP', 'MOON', 'BEES', 'TREE', 'FISH', 'STAR', 'POND', 'RING', 'TOYS', 'SNOW', 'PINK', 'BIKE', 'DUCK', 'SHIP', 'BIRD', 'WIND', 'WAVE', 'RIDE'],
-  ['APPLE', 'BROWN', 'CLOCK', 'DREAM', 'EAGLE', 'FRUIT', 'GREEN', 'HAPPY', 'IMAGE', 'JELLY', 'RIVER', 'MOUSE', 'ROSES', 'HONEY', 'BRUSH', 'SHEEP', 'HOUSE', 'NIGHT', 'PLANE', 'BRICK', 'SWEET', 'GRASS', 'SMILE', 'LIGHT', 'CRISP', 'FAIRY', 'PRICE', 'WATER', 'CLOUD', 'PEACH'],
-  ['EVELYN', 'BANANA', 'BUTTON', 'CAMERA', 'DANGER', 'FLOWER', 'GARDEN', 'HAPPY', 'JACKET', 'KITTEN', 'LAPTOP', 'PENCIL', 'ROCKET', 'MARKER', 'COOKIE', 'DINNER', 'FAMILY', 'WINDOW', 'CUPCAKE', 'PILLOW', 'JUNGLE', 'PENGUIN', 'TIGER', 'BOTTLE', 'HAMMER', 'TUNNEL', 'JIGSAW', 'ZIPPER', 'OCEANS', 'SUNSET'],
-  ['BASKET', 'BALANCE', 'BOTTLES', 'BUTTERS', 'CANDLE', 'CASTLE', 'CATTLE', 'CHOCOLATE', 'CUCUMBER', 'DIAMOND', 'GIRAFFE', 'MEADOWS', 'PUZZLE', 'POPCORN', 'STATION', 'RAINBOW', 'SAUSAGE', 'SWEATER', 'TURTLE', 'GIRAFFE', 'PICTURE', 'NOTEBOOK', 'ELEPHANT', 'STRAWBERRY', 'AVOCADO', 'VILLAGE', 'PYJAMAS', 'BALLOON', 'ROCKING']
+  ['CAT', 'ACT', 'POP', 'TOP', 'BOP', 'BOT', 'BED', 'DOG', 'MOM', 'EVE', 'DAD', 'DIG', 'DUG', 'PAT', 'RUN', 'SUN', 'FUN', 'HAT', 'BAT', 'BIG', 'BUG', 'MUG', 'BEN', 'CUP', 'CUT', 'TOY', 'BOX', 'FAN', 'POT', 'RED', 'HOP', 'PIN', 'WEB', 'WET', 'JET', 'PIG', 'LOG', 'RAT', 'ANT', 'MAP', 'CAR'],
+  ['BOOK', 'TOOK', 'HOOK', 'AELA', 'CAKE', 'TAKE', 'MAKE', 'DUST', 'RUST', 'FUSS', 'FROG', 'CATS', 'DOGS', 'LOGS', 'DIGS', 'SUNS', 'SONS', 'HATS', 'BATS', 'BUGS', 'GIFT', 'HOPE', 'JUMP', 'KITE', 'LAMP', 'MOON', 'BEES', 'TREE', 'FISH', 'STAR', 'RATS', 'JILL', 'PHIL', 'NORA', 'ELLA', 'POND', 'RING', 'TOYS', 'SNOW', 'PINK', 'BIKE', 'DUCK', 'SHIP', 'BIRD', 'WIND', 'WAVE', 'RIDE'],
+  ['APPLE', 'MOMMY', 'DADDY', 'BROWN', 'CLOCK', 'DREAM', 'EAGLE', 'FRUIT', 'GREEN', 'HAPPY', 'IMAGE', 'JELLY', 'RIVER', 'MOUSE', 'ROSES', 'HONEY', 'BRUSH', 'SHEEP', 'HOUSE', 'NIGHT', 'PLANE', 'BRICK', 'SWEET', 'GRASS', 'SMILE', 'LIGHT', 'CRISP', 'FAIRY', 'PRICE', 'WATER', 'CLOUD', 'PEACH'],
+  ['EVELYN', 'BANANA', 'BUTTON', 'SISTER', 'MOTHER', 'FATHER', 'CAMERA', 'DANGER', 'FLOWER', 'GARDEN', 'HUNGRY', 'JACKET', 'KITTEN', 'LAPTOP', 'PENCIL', 'ROCKET', 'MARKER', 'COOKIE', 'DINNER', 'FAMILY', 'WINDOW', 'PILLOW', 'JUNGLE',  'TIGERS', 'BOTTLE', 'HAMMER', 'TUNNEL', 'JIGSAW', 'ZIPPER', 'OCEANS', 'CANDLE', 'CASTLE', 'CATTLE', 'SUNSET'],
+  ['BASKETS', 'CUPCAKES', 'BALANCE', 'PENGUIN', 'BROTHER', 'BOTTLES', 'BUTTERS', 'CHOCOLATE', 'CUCUMBER', 'DIAMOND', 'GIRAFFE', 'MEADOWS', 'PUZZLES', 'POPCORN', 'STATION', 'RAINBOW', 'SAUSAGE', 'SWEATER', 'TURTLES', 'GIRAFFE', 'PICTURE', 'NOTEBOOK', 'ELEPHANT', 'STRAWBERRY', 'AVOCADO', 'VILLAGE', 'PYJAMAS', 'BALLOON', 'ROCKING']
 ];
 
 // Initializing game variables
@@ -71,7 +71,7 @@ class Player {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.width = 125;
+    this.width = 150;
     this.height =100;
   }
 
@@ -85,8 +85,8 @@ class Asteroid {
   constructor(x, y, word, image) {
     this.x = x;
     this.y = y;
-    this.width = 100;
-    this.height = 100;
+    this.width = 120;
+    this.height = 75;
     this.speed = 0.7 + level * 0.3; // Increase speed with each level
     this.word = word;
     this.highlighted = '';
@@ -109,7 +109,7 @@ class Asteroid {
     for (let i = 0; i < this.word.length; i++) {
       const char = this.word[i];
       const isHighlighted = i <= this.lastHighlightedIndex;
-      ctx.fillStyle = isHighlighted ? 'pink' : 'red';
+      ctx.fillStyle = isHighlighted ? 'green' : 'red';
       ctx.fillText(char, xOffset + i * 20, yOffset);
       ctx.strokeText(char, xOffset + i * 20, yOffset);
     }
@@ -128,7 +128,7 @@ class Laser {
     this.targetX = targetX;
     this.targetY = targetY;
     this.radius = 10;
-    this.speed = 13;
+    this.speed = 18;
     this.word = word;
     this.angle = Math.atan2(targetY - y, targetX - x);
     this.rotation = 0;
