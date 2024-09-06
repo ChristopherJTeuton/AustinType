@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spaceship Typing</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Include Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&family=Exo:wght@400;500;600&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="gameContainer">
     <div id="startScreen">
-      <h1 class="floating-text">Spaceship Typing</h1>
-      <p>FOR PARENTS: The word list can be found in the file game.js and can be edited to include any other words or names you would like your children to learn!</p>
-      <p>FOR TEACHERS: This is an educational game! Ask your students to say the words as they type them, or call them out yourself!</p>
-
+      <h1>Spaceship Typing</h1>
+      <div id="modeSelectScreen" class="hidden">
+  <h1>Select Game Mode</h1>
+  <button id="normalModeButton">Normal Mode</button>
+  <button id="hardModeButton" class="locked">Hard Mode</button>
+</div>
+      <p>Ensure CAPS LOCK is on before playing.</p>
+      <p>PARENTS: The word list can be found in the file game.js and can be edited to include any other words or names you would like your children to learn!</p>
       <div id="backgroundSelect">
         <h2>Choose Your Background:</h2>
         <div class="backgroundOption" data-bg="background.png">
@@ -51,11 +53,6 @@
           <img src="lock.png" alt="Lock" class="lock-overlay">
         </div>
       </div>
-        <h2>Choose Your Difficulty:
-      <button id="startButton">Normal Mode</button>
-      <button id="hardModeButton" class="locked">Hard Mode</button></h2>
-      <p>NORMAL MODE: Five levels of increasing difficulty, from three letter words to seven letter words. Ensure CAPS LOCK is on before starting.</p>
-      <p>HARD MODE: Recommended for advanced players only. Faster gameplay, and all words or phrases must have proper capitalization.</p>
     </div>
     <canvas id="gameCanvas" width="1200" height="800"></canvas>
     <input type="text" id="typedWord" autocomplete="off" placeholder="Type the word here..." />
@@ -64,7 +61,6 @@
       <label for="volumeSlider">Volume:</label>
       <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
       <button id="muteButton">Mute</button>
-      <button id="pauseButton">Pause</button>
     </div>
   </div>
   <div id="gameOverScreen" class="hidden">
@@ -81,15 +77,5 @@
     <button id="restartButtonWin">Play Again?</button>
   </div>
   <script src="game.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const title = document.querySelector('#startScreen h1');
-      const text = title.innerText;
-      title.innerHTML = '';
-      for (let i = 0; i < text.length; i++) {
-        title.innerHTML += `<span>${text[i]}</span>`;
-      }
-    });
-  </script>
 </body>
 </html>

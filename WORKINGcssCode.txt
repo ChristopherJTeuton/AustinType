@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +12,7 @@ body {
   background-size: cover;
   color: white;
 }
+/* Styles for the body element to set up the overall layout and appearance of the webpage */
 
 #startScreen,
 #gameOverScreen,
@@ -23,8 +24,9 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
-  padding-top: 150px; /* Adjusted padding-top to move the title higher */
+  padding-top: 200px;
 }
+/* Styles for the start screen, game over screen, and win screen to overlay the entire viewport */
 
 #startScreen h1,
 #gameOverScreen h1,
@@ -32,9 +34,8 @@ body {
   font-size: 4em;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  animation: float 3s infinite;
-  font-family: 'Orbitron', sans-serif;
 }
+/* Styles for the headings on the start screen, game over screen, and win screen */
 
 #startScreen button,
 #gameOverScreen button,
@@ -47,15 +48,16 @@ body {
   border-radius: 5px;
   color: white;
   margin: 10px;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s;
 }
+/* Styles for the buttons on the start screen, game over screen, and win screen */
 
 #startScreen button:hover,
 #gameOverScreen button:hover,
 #winScreen button:hover {
   background-color: #0b57c4;
-  transform: scale(1.05);
 }
+/* Hover effect for the buttons on the start screen, game over screen, and win screen */
 
 #backgroundSelect,
 #playerSelect {
@@ -63,6 +65,7 @@ body {
   justify-content: center;
   margin-top: 30px;
 }
+/* Styles for the background and player selection sections to arrange items horizontally */
 
 .backgroundOption,
 .playerOption {
@@ -71,9 +74,10 @@ body {
   border: 2px solid #1a73e8;
   border-radius: 5px;
   overflow: hidden;
-  transition: border-color 0.3s, transform 0.3s;
+  transition: border-color 0.3s;
   position: relative;
 }
+/* Styles for the background and player selection options */
 
 .backgroundOption img,
 .playerOption img {
@@ -81,23 +85,26 @@ body {
   height: 100px;
   object-fit: cover;
 }
+/* Styles for the images within the background and player selection options */
 
 .backgroundOption:hover,
 .playerOption:hover {
   border-color: #0b57c4;
-  transform: scale(1.1);
 }
+/* Hover effect for the background and player selection options */
 
 .backgroundOption.selected,
 .playerOption.selected {
   border-color: yellow;
 }
+/* Styles for the selected background and player options */
 
 .backgroundOption.locked,
 .playerOption.locked {
   cursor: not-allowed;
   opacity: 0.6;
 }
+/* Styles for the locked background and player options */
 
 .lock-overlay {
   position: absolute;
@@ -107,6 +114,7 @@ body {
   height: 100%;
   object-fit: contain;
 }
+/* Styles for the lock overlay image */
 
 #gameContainer {
   position: relative;
@@ -114,6 +122,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
+/* Styles for the game container to center and arrange its children */
 
 #gameCanvas {
   display: block;
@@ -122,6 +131,7 @@ body {
   border: 2px solid #1a73e8;
   border-radius: 10px;
 }
+/* Styles for the game canvas element */
 
 #typedWord {
   margin-top: 20px;
@@ -134,6 +144,7 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
 }
+/* Styles for the input field where the player types the words */
 
 #scoreDisplay {
   position: absolute;
@@ -143,24 +154,26 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
-  font-family: 'Orbitron', sans-serif;
 }
+/* Styles for the score display element */
 
 #audioControls {
   margin-top: 20px;
   display: flex;
   align-items: center;
 }
+/* Styles for the audio controls section */
 
 #audioControls label {
   color: white;
   margin-right: 10px;
-  font-family: 'Orbitron', sans-serif;
 }
+/* Styles for the label in the audio controls section */
 
 #audioControls input[type="range"] {
   width: 200px;
 }
+/* Styles for the range input in the audio controls section */
 
 #audioControls button {
   margin-left: 10px;
@@ -171,122 +184,22 @@ body {
   border: none;
   border-radius: 5px;
   color: white;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s;
 }
+/* Styles for the button in the audio controls section */
 
 #audioControls button:hover {
   background-color: #0b57c4;
-  transform: scale(1.05);
 }
+/* Hover effect for the button in the audio controls section */
 
-.exploding-asteroid img {
-  animation: explode 1s forwards;
+.explosion {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-@keyframes explode {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.5;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
+  width: 100px;
+  height: 100px;
 }
 
 .hidden {
   display: none;
 }
-
-/* Floating text animation */
-.floating-text {
-  font-family: 'Orbitron', sans-serif; /* Space-like font */
-  animation: float 3s infinite;
-}
-
-.floating-text span {
-  display: inline-block;
-  animation: float 5s infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Apply the animation to each letter */
-.floating-text span:nth-child(1) {
-  animation-delay: 0s;
-}
-.floating-text span:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.floating-text span:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.floating-text span:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.floating-text span:nth-child(5) {
-  animation-delay: 0.4s;
-}
-.floating-text span:nth-child(6) {
-  animation-delay: 0.5s;
-}
-.floating-text span:nth-child(7) {
-  animation-delay: 0.6s;
-}
-.floating-text span:nth-child(8) {
-  animation-delay: 0.7s;
-}
-.floating-text span:nth-child(9) {
-  animation-delay: 0.8s;
-}
-.floating-text span:nth-child(10) {
-  animation-delay: 0.9s;
-}
-.floating-text span:nth-child(11) {
-  animation-delay: 1s;
-}
-.floating-text span:nth-child(12) {
-  animation-delay: 1.1s;
-}
-.floating-text span:nth-child(13) {
-  animation-delay: 1.2s;
-}
-.floating-text span:nth-child(14) {
-  animation-delay: 1.3s;
-}
-.floating-text span:nth-child(15) {
-  animation-delay: 1.4s;
-}
-.floating-text span:nth-child(16) {
-  animation-delay: 1.5s;
-}
-.floating-text span:nth-child(17) {
-  animation-delay: 1.6s;
-}
-.floating-text span:nth-child(18) {
-  animation-delay: 1.7s;
-}
-.floating-text span:nth-child(19) {
-  animation-delay: 1.8s;
-}
-.floating-text span:nth-child(20) {
-  animation-delay: 1.9s;
-}
-.floating-text span:nth-child(21) {
-  animation-delay: 2s;
-}
+/* Utility class to hide elements */

@@ -7,14 +7,12 @@ const winScreen = document.getElementById('winScreen');
 const finalScoreDisplay = document.getElementById('finalScore');
 const finalScoreWinDisplay = document.getElementById('finalScoreWin');
 const startButton = document.getElementById('startButton');
-const hardModeButton = document.getElementById('hardModeButton');
 const restartButton = document.getElementById('restartButton');
 const restartButtonWin = document.getElementById('restartButtonWin');
 const typedWordInput = document.getElementById('typedWord');
 const scoreDisplay = document.getElementById('scoreDisplay');
 const volumeSlider = document.getElementById('volumeSlider');
 const muteButton = document.getElementById('muteButton');
-const pauseButton = document.getElementById('pauseButton');
 
 // Loading images for the game
 let playerImage = new Image();
@@ -46,16 +44,11 @@ const gameOverSound = new Audio('gameover_sound.mp3');
 
 // Defining the words for each level
 const words = [
-  ['CAT', 'YES', 'IMP', 'BOG', 'HOG', 'COW', 'MOW', 'TOW', 'TOE', 'LOW', 'ACT', 'POP', 'TOP', 'BOP', 'BOT', 'BED', 'DOG', 'MOM', 'EVE', 'DAD', 'DIG', 'DUG', 'PAT', 'RUN', 'SUN', 'FUN', 'HAT', 'BAT', 'BIG', 'BUG', 'MUG', 'BEN', 'CUP', 'CUT', 'TOY', 'BOX', 'FAN', 'POT', 'RED', 'HOP', 'PIN', 'WEB', 'WET', 'JET', 'PIG', 'LOG', 'RAT', 'ANT', 'MAP', 'CAR', 'CAR'],
+  ['CAT', 'ACT', 'POP', 'TOP', 'BOP', 'BOT', 'BED', 'DOG', 'MOM', 'EVE', 'DAD', 'DIG', 'DUG', 'PAT', 'RUN', 'SUN', 'FUN', 'HAT', 'BAT', 'BIG', 'BUG', 'MUG', 'BEN', 'CUP', 'CUT', 'TOY', 'BOX', 'FAN', 'POT', 'RED', 'HOP', 'PIN', 'WEB', 'WET', 'JET', 'PIG', 'LOG', 'RAT', 'ANT', 'MAP', 'CAR'],
   ['BOOK', 'TOOK', 'HOOK', 'AELA', 'CAKE', 'TAKE', 'MAKE', 'DUST', 'RUST', 'FUSS', 'FROG', 'CATS', 'DOGS', 'LOGS', 'DIGS', 'SUNS', 'SONS', 'HATS', 'BATS', 'BUGS', 'GIFT', 'HOPE', 'JUMP', 'KITE', 'LAMP', 'MOON', 'BEES', 'TREE', 'FISH', 'STAR', 'RATS', 'JILL', 'PHIL', 'NORA', 'ELLA', 'POND', 'RING', 'TOYS', 'SNOW', 'PINK', 'BIKE', 'DUCK', 'SHIP', 'BIRD', 'WIND', 'WAVE', 'RIDE'],
   ['APPLE', 'MOMMY', 'DADDY', 'BROWN', 'CLOCK', 'DREAM', 'EAGLE', 'FRUIT', 'GREEN', 'HAPPY', 'IMAGE', 'JELLY', 'RIVER', 'MOUSE', 'ROSES', 'HONEY', 'BRUSH', 'SHEEP', 'HOUSE', 'NIGHT', 'PLANE', 'BRICK', 'SWEET', 'GRASS', 'SMILE', 'LIGHT', 'CRISP', 'FAIRY', 'PRICE', 'WATER', 'CLOUD', 'PEACH'],
   ['EVELYN', 'BANANA', 'BUTTON', 'SISTER', 'MOTHER', 'FATHER', 'CAMERA', 'DANGER', 'FLOWER', 'GARDEN', 'HUNGRY', 'JACKET', 'KITTEN', 'LAPTOP', 'PENCIL', 'ROCKET', 'MARKER', 'COOKIE', 'DINNER', 'FAMILY', 'WINDOW', 'PILLOW', 'JUNGLE',  'TIGERS', 'BOTTLE', 'HAMMER', 'TUNNEL', 'JIGSAW', 'ZIPPER', 'OCEANS', 'CANDLE', 'CASTLE', 'CATTLE', 'SUNSET'],
   ['BASKETS', 'CUPCAKES', 'BALANCE', 'PENGUIN', 'BROTHER', 'BOTTLES', 'BUTTERS', 'CHOCOLATE', 'CUCUMBER', 'DIAMOND', 'GIRAFFE', 'MEADOWS', 'PUZZLES', 'POPCORN', 'STATION', 'RAINBOW', 'SAUSAGE', 'SWEATER', 'TURTLES', 'GIRAFFE', 'PICTURE', 'NOTEBOOK', 'ELEPHANT', 'STRAWBERRY', 'AVOCADO', 'VILLAGE', 'PYJAMAS', 'BALLOON', 'ROCKING']
-];
-
-// Hard mode word list
-const hardModeWords = [
-'Cat', 'Go Up', 'Hi Mom', 'By Now', 'Do It', 'Yes Sir', 'Yes Mam', 'No Mam', 'Be Cool', 'Go Fast', 'Hi Dad', 'No Way', 'So Fun', 'Be Good', 'Hi Pal', 'Go Far', 'Hi Bud', 'No Sir', 'So Bad', 'Be Safe', 'Hi Guy', 'Go Now', 'Hi Sis', 'No Thanks', 'On Top', 'Big Hat', 'My Car', 'My Dog', 'A Book', 'Act', 'Pop', 'Top', 'Bop', 'Bot', 'Bed', 'Dog', 'My Mom', 'Eve', 'My Dad', 'Dig Dug', 'Pat', 'Run', 'Sun', 'Fun', 'Hat', 'Bat', 'Big Cat', 'Bug', 'Mug', 'Ben', 'Cup', 'Cut', 'A Toy', 'Box', 'Fan', 'Pot', 'Red', 'Hop', 'Pin', 'Web', 'Wet', 'Jet', 'Pig', 'Log', 'Rat', 'Ant', 'Map', 'Car', 'Book', 'Took', 'Hook', 'Aela', 'Cake', 'Take', 'Make', 'Dust', 'Rust', 'Fuss', 'Frog', 'Cats', 'Dogs', 'Logs', 'Digs', 'Suns', 'Sons', 'Hats', 'Bats', 'Bugs', 'Gift', 'Hope', 'Jump', 'A Kite', 'Lamp', 'Moon', 'Bees', 'Tree', 'Fish', 'Star', 'Rats', 'Jill', 'Phil', 'Nora', 'Ella', 'Pond', 'Ring', 'Toys', 'Snow', 'Pink', 'Bike', 'Duck', 'Ship', 'Bird', 'Windy Day', 'Wave', 'Ride', 'Apple', 'Mommy', 'Daddy', 'Brown', 'Clock', 'Dream', 'Eagle', 'Fruit', 'Green', 'Happy', 'Image', 'Jelly', 'River', 'Mouse', 'Roses', 'Honey', 'Brush', 'Sheep', 'House', 'Night', 'Plane', 'Brick', 'Sweet', 'Grass', 'A Smile', 'A Light', 'Crisp', 'Fairy', 'Price', 'Water', 'Cloud', 'Peach', 'Evelyn', 'Banana', 'Button', 'Sister', 'Mother', 'Father', 'Camera', 'Danger', 'Flower', 'Garden', 'Hungry', 'Jacket', 'Kitten', 'Laptop', 'Pencil', 'Rocket', 'Marker', 'Cookie', 'Dinner', 'Family', 'Window', 'Pillow', 'Jungle', 'Tigers', 'Bottle', 'Hammer', 'Tunnel', 'Jigsaw', 'Zipper', 'Oceans', 'Candle', 'Castle', 'Cattle', 'Sunset', 'Baskets', 'Cupcakes', 'Balance', 'Penguin', 'Brother', 'Bottles', 'Butters', 'Chocolate', 'Cucumber', 'Diamond', 'Giraffe', 'Meadows', 'Puzzles', 'Popcorn', 'Station', 'Rainbow', 'Sausage', 'Sweater', 'Turtles', 'Giraffe', 'Picture', 'Notebook', 'Elephants', 'Strawberries', 'Avocado', 'Villages', 'Pyjamas', 'Balloons', 'Rocking', 'Turn On', 'Turn Off', 'Go Fast', 'Go Slow', 'Look Up', 'Look Down', 'Look Left', 'Look Right', 'Move Up', 'Move Down', 'Move Left', 'Move Right', 'Jump Up', 'Jump Down', 'Jump Left', 'Jump Right'
 ];
 
 // Initializing game variables
@@ -72,8 +65,6 @@ let selectedBackground = 'background.png';
 let selectedPlayer = 'player.png';
 let unlockedBackgrounds = ['background.png'];
 let unlockedPlayers = ['player.png'];
-let hardMode = false;
-let isPaused = false;
 
 // Player class definition
 class Player {
@@ -96,7 +87,7 @@ class Asteroid {
     this.y = y;
     this.width = 120;
     this.height = 75;
-    this.speed = hardMode ? 1.4 + level * 0.6 : 0.7 + level * 0.3; // Increase speed with each level
+    this.speed = 0.7 + level * 0.3; // Increase speed with each level
     this.word = word;
     this.highlighted = '';
     this.lastHighlightedIndex = -1;
@@ -125,9 +116,7 @@ class Asteroid {
   }
 
   update() {
-    if (!isPaused) {
-      this.y += this.speed;
-    }
+    this.y += this.speed;
   }
 }
 
@@ -155,32 +144,33 @@ class Laser {
   }
 
   update() {
-    if (!isPaused) {
-      this.x += Math.cos(this.angle) * this.speed;
-      this.y += Math.sin(this.angle) * this.speed;
-    }
+    this.x += Math.cos(this.angle) * this.speed;
+    this.y += Math.sin(this.angle) * this.speed;
   }
 }
 
-// Function to handle asteroid explosion
-function explodeAsteroid(asteroid) {
-  const explosionElement = document.createElement('div');
-  explosionElement.classList.add('exploding-asteroid');
-  explosionElement.style.position = 'absolute';
-  explosionElement.style.left = `${asteroid.x}px`;
-  explosionElement.style.top = `${asteroid.y}px`;
-  explosionElement.style.width = `${asteroid.width}px`;
-  explosionElement.style.height = `${asteroid.height}px`;
-  explosionElement.innerHTML = `<img src="boom.gif" alt="Explosion">`;
+// Explosion class definition
+class Explosion {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.width = 50;
+    this.height = 50;
+    this.frame = 0;
+    this.frameCount = 10; // Adjust based on the number of frames in the GIF
+    this.image = explosionImage;
+  }
 
-  // Append the explosion element to the game container
-  const gameContainer = document.getElementById('gameContainer');
-  gameContainer.appendChild(explosionElement);
+  draw() {
+    ctx.drawImage(this.image, this.frame * this.width, 0, this.width, this.height, this.x, this.y, this.width, this.height);
+    this.frame++;
+  }
 
-  setTimeout(() => {
-    explosionElement.remove();
-    explosions.shift(); // Remove the explosion from the explosions array
-  }, 1000); // Duration of the explosion animation
+  update() {
+    if (this.frame >= this.frameCount) {
+      explosions.shift();
+    }
+  }
 }
 
 // Initialize the game
@@ -240,7 +230,7 @@ function animate() {
           laser.word === asteroid.word // The laser's word matches the asteroid's word
         ) {
           // Create a new explosion at the asteroid's position
-          explodeAsteroid(asteroid);
+          explosions.push(new Explosion(asteroid.x, asteroid.y));
 
           // Remove the asteroid from the asteroids array
           asteroids.splice(index, 1);
@@ -272,17 +262,8 @@ function animate() {
             unlockItems();
 
             // Check if the player has reached the final level
-            if (!hardMode && level >= words.length) {
+            if (level >= words.length) {
               // If the player has reached the final level, set the game to over
-              gameOver = true;
-
-              // Pause the background music
-              backgroundMusic.pause();
-
-              // Show the win screen
-              showWinScreen();
-            } else if (hardMode && score >= 500) {
-              // If the player has reached the final score in hard mode, set the game to over
               gameOver = true;
 
               // Pause the background music
@@ -319,15 +300,22 @@ function animate() {
         lasers.splice(index, 1);
       }
     });
+
+    // Iterate over each explosion in the explosions array
+    explosions.forEach(explosion => {
+      // Draw the explosion on the canvas
+      explosion.draw();
+
+      // Update the explosion's frame
+      explosion.update();
+    });
   }
 }
 
 // Spawn a new asteroid
 function spawnAsteroid() {
-  const word = hardMode ? hardModeWords[Math.floor(Math.random() * hardModeWords.length)] : words[level][Math.floor(Math.random() * words[level].length)];
-  const asteroidWidth = 120; // Assuming the width of the asteroid is 120 pixels
-  const margin = 70; // Margin to avoid spawning near the edges
-  const x = Math.random() * (canvas.width - asteroidWidth - 2 * margin) + margin;
+  const word = words[level][Math.floor(Math.random() * words[level].length)];
+  const x = Math.random() * (canvas.width - 100);
   const image = asteroidImages[Math.floor(Math.random() * asteroidImages.length)];
   asteroids.push(new Asteroid(x, -75, word, image));
 }
@@ -360,27 +348,6 @@ function startGame() {
   asteroidsDestroyed = 0;
   gameOver = false;
   gameStarted = true;
-  hardMode = false;
-  canvas.style.backgroundImage = `url('${selectedBackground}')`;
-  countdown();
-}
-
-// Start the hard mode game
-function startHardMode() {
-  startScreen.classList.add('hidden');
-  gameOverScreen.classList.add('hidden');
-  winScreen.classList.add('hidden');
-  canvas.classList.remove('hidden');
-  typedWordInput.value = '';
-  asteroids = [];
-  lasers = [];
-  explosions = [];
-  score = 0;
-  level = 0;
-  asteroidsDestroyed = 0;
-  gameOver = false;
-  gameStarted = true;
-  hardMode = true;
   canvas.style.backgroundImage = `url('${selectedBackground}')`;
   countdown();
 }
@@ -490,15 +457,6 @@ function updateUnlocks() {
       }
     }
   });
-
-  // Unlock hard mode if all levels are completed
-  if (level >= words.length) {
-    hardModeButton.classList.remove('locked');
-    const lockOverlay = hardModeButton.querySelector('.lock-overlay');
-    if (lockOverlay) {
-      lockOverlay.style.display = 'none';
-    }
-  }
 }
 
 // Add event listeners for selecting backgrounds and players
@@ -520,16 +478,14 @@ document.querySelectorAll('.backgroundOption, .playerOption').forEach(option => 
 
 // Add event listeners for buttons
 startButton.addEventListener('click', startGame);
-hardModeButton.addEventListener('click', startHardMode);
 restartButton.addEventListener('click', restartGame);
 restartButtonWin.addEventListener('click', restartGame);
 muteButton.addEventListener('click', toggleMute);
 volumeSlider.addEventListener('input', updateVolume);
-pauseButton.addEventListener('click', togglePause);
 
 // Add event listener for typing in the input field
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && gameStarted && !gameOver && !isPaused) {
+  if (event.key === 'Enter' && gameStarted && !gameOver) {
     const typedWord = typedWordInput.value.trim();
     if (typedWord !== '') {
       const matchingAsteroid = asteroids.find(asteroid => asteroid.word === typedWord);
@@ -549,15 +505,3 @@ Player.prototype.shoot = function(word, targetX, targetY) {
   lasers.push(new Laser(this.x + this.width / 2, this.y, targetX, targetY, word));
   laserSound.play();
 };
-
-// Toggle the pause state of the game
-function togglePause() {
-  isPaused = !isPaused;
-  if (isPaused) {
-    pauseButton.textContent = 'Unpause';
-    backgroundMusic.pause();
-  } else {
-    pauseButton.textContent = 'Pause';
-    backgroundMusic.play();
-  }
-}
