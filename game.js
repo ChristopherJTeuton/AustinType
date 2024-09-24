@@ -46,16 +46,16 @@ const gameOverSound = new Audio('gameover_sound.mp3');
 
 // Defining the words for each level
 const words = [
-  ['ONE', 'TWO', 'SIX', 'TEN', 'CAT', 'YES', 'IMP', 'BOG', 'HOG', 'COW', 'MOW', 'TOW', 'TOE', 'LOW', 'ACT', 'POP', 'TOP', 'BOP', 'BOT', 'BED', 'DOG', 'MOM', 'EVE', 'DAD', 'ADD', 'DIG', 'DUG', 'PAT', 'RUN', 'SUN', 'FUN', 'HAT', 'BAT', 'BIG', 'BUG', 'MUG', 'BEN', 'CUP', 'CUT', 'TOY', 'BOX', 'FAN', 'POT', 'RED', 'HOP', 'PIN', 'WEB', 'WET', 'JET', 'PIG', 'LOG', 'RAT', 'ANT', 'MAP', 'CAR', 'CAR'],
-  ['BOOK', 'FOUR', 'NINE', 'FIVE', 'TOOK', 'HOOK', 'AELA', 'CAKE', 'TAKE', 'MAKE', 'DUST', 'RUST', 'FUSS', 'FROG', 'CATS', 'DOGS', 'LOGS', 'DIGS', 'SUNS', 'SONS', 'HATS', 'PLUS', 'BATS', 'BUGS', 'GIFT', 'HOPE', 'JUMP', 'KITE', 'LAMP', 'MOON', 'BEES', 'TREE', 'FISH', 'STAR', 'RATS', 'JILL', 'PHIL', 'TIME', 'NORA', 'ELLA', 'POND', 'RING', 'TOYS', 'SNOW', 'PINK', 'BIKE', 'DUCK', 'SHIP', 'BIRD', 'WIND', 'WAVE', 'RIDE'],
-  ['APPLE', 'EIGHT', 'MINUS', 'SEVEN', 'THREE', 'MOMMY', 'DADDY', 'BROWN', 'CLOCK', 'DREAM', 'EAGLE', 'FRUIT', 'GREEN', 'HAPPY', 'IMAGE', 'JELLY', 'RIVER', 'MOUSE', 'ROSES', 'HONEY', 'BRUSH', 'SHEEP', 'HOUSE', 'NIGHT', 'PLANE', 'BRICK', 'SWEET', 'GRASS', 'SMILE', 'LIGHT', 'CRISP', 'FAIRY', 'PRICE', 'WATER', 'CLOUD', 'PEACH'],
+  ['ONE', 'TWO', 'SIX', 'TEN', 'CAT', 'YES', 'IMP', 'BOG', 'HOG', 'COW', 'MOW', 'TOW', 'TOE', 'LOW', 'ACT', 'POP', 'TOP', 'BOP', 'BOT', 'BED', 'DOG', 'MOM', 'EVE', 'DAD', 'ADD', 'DIG', 'DUG', 'PAT', 'RUN', 'SUN', 'FUN', 'HAT', 'BAT', 'BIG', 'BUG', 'MUG', 'BEN', 'CUP', 'CUT', 'TOY', 'BOX', 'FAN', 'POT', 'RED', 'HOP', 'PIN', 'FIN', 'TIN', 'BIN', 'BAT', 'WEB', 'WET', 'JET', 'PIG', 'LOG', 'RAT', 'ANT', 'MAP', 'CAR', 'FAR', 'TAR', 'BIT', 'BID'],
+  ['BOOK', 'FOUR', 'NINE', 'FIVE', 'TOOK', 'HOOK', 'AELA', 'CAKE', 'TAKE', 'MAKE', 'DUST', 'RUST', 'FUSS', 'FROG', 'CATS', 'DOGS', 'DAWN', 'FAWN', 'LAWN', 'YAWN', 'PORT', 'FORT', 'LOGS', 'DIGS', 'SUNS', 'SONS', 'HATS', 'PLUS', 'BATS', 'BUGS', 'GIFT', 'HOPE', 'JUMP', 'KITE', 'LAMP', 'MOON', 'BEES', 'TREE', 'FISH', 'STAR', 'RATS', 'JILL', 'PHIL', 'TIME', 'NORA', 'ELLA', 'POND', 'RING', 'TOYS', 'SNOW', 'PINK', 'BIKE', 'DUCK', 'SHIP', 'LACE', 'FACE', 'RACE', 'PACE', 'BIRD', 'WIND', 'WAVE', 'RIDE'],
+  ['APPLE', 'SHORT', 'GRACE', 'TRACE', 'EIGHT', 'MINUS', 'SEVEN', 'THREE', 'MOMMY', 'DADDY', 'BROWN', 'CLOCK', 'DREAM', 'EAGLE', 'FRUIT', 'GREEN', 'HAPPY', 'IMAGE', 'JELLY', 'RIVER', 'MOUSE', 'ROSES', 'HONEY', 'BRUSH', 'SHEEP', 'HOUSE', 'NIGHT', 'PLANE', 'BRICK', 'SWEET', 'GRASS', 'SMILE', 'LIGHT', 'CRISP', 'FAIRY', 'PRICE', 'WATER', 'CLOUD', 'COURT', 'BLOCK', 'SHOCK', 'SMOCK', 'SHIRT', 'BLURT', 'PEACH'],
   ['EVELYN', 'BANANA', 'BUTTON', 'TWENTY', 'SISTER', 'MOTHER', 'FATHER', 'CAMERA', 'DANGER', 'FLOWER', 'GARDEN', 'HUNGRY', 'JACKET', 'KITTEN', 'LAPTOP', 'PENCIL', 'ROCKET', 'MARKER', 'COOKIE', 'DINNER', 'FAMILY', 'WINDOW', 'PILLOW', 'JUNGLE',  'TIGERS', 'BOTTLE', 'HAMMER', 'TUNNEL', 'JIGSAW', 'ZIPPER', 'OCEANS', 'CANDLE', 'CASTLE', 'CATTLE', 'SUNSET'],
   ['BASKETS', 'CUPCAKES', 'BALANCE', 'PENGUIN', 'BROTHER', 'BOTTLES', 'BUTTERS', 'CHOCOLATE', 'CUCUMBER', 'DIAMOND', 'GIRAFFE', 'MEADOWS', 'PUZZLES', 'POPCORN', 'STATION', 'RAINBOW', 'SAUSAGE', 'SWEATER', 'TURTLES', 'GIRAFFE', 'PICTURE', 'NOTEBOOK', 'ELEPHANT', 'STRAWBERRY', 'AVOCADO', 'VILLAGE', 'PYJAMAS', 'BALLOON', 'ROCKING']
 ];
 
 // Hard mode word list
 const hardModeWords = [
-'Cat Box', 'Go Up', 'Hi Mom', 'By Now', 'Do It', 'Yes Sir', 'Yes Mam', 'No Mam', 'Be Cool', 'Go Fast', 'Hi Dad', 'No Way', 'So Fun', 'Be Good', 'Hi Pal', 'Go Far', 'Hi Bud', 'No Sir', 'So Bad', 'Be Safe', 'Hi Guy', 'Go Now', 'Hi Sis', 'No Thanks', 'On Top', 'Big Hat', 'My Car', 'My Dog', 'A Book', 'Act', 'Pop Tart', 'On Top', 'Bop It', 'Robotic', 'Bedtime', 'Dog Bowl', 'My Mom', 'Eve', 'My Dad', 'Dig Dug', 'Pat', 'Run', 'Sun', 'Fun', 'Hat', 'Bat', 'Big Cat', 'Bug', 'Mug', 'Ben', 'Cup', 'Cut', 'A Toy', 'Box', 'Fan', 'Pot', 'Red', 'Hop', 'Pin', 'Web', 'Wet', 'Jet', 'Pig', 'Log', 'Rat', 'Ant', 'Map', 'Car', 'Book', 'Took', 'Hook', 'Aela', 'Cake', 'Take', 'Make', 'Dust', 'Rust', 'Fuss', 'Frog', 'Cats', 'Dogs', 'Logs', 'Digs', 'Suns', 'Sons', 'Hats', 'Bats', 'Bugs', 'Gift', 'Hope', 'Jump', 'A Kite', 'Lamp', 'Moon', 'Bees', 'Tree', 'Fish', 'Star', 'Rats', 'Jill', 'Phil', 'Nora', 'Ella', 'Pond', 'Ring', 'Toys', 'Snow', 'Pink', 'Bike', 'Duck', 'Ship', 'Bird', 'Windy Day', 'Wave', 'Ride', 'Apple', 'Mommy', 'Daddy', 'Brown', 'Clock', 'Dream', 'Eagle', 'Fruit', 'Green', 'Happy', 'Image', 'Jelly', 'River', 'Mouse', 'Roses', 'Honey', 'Brush', 'Sheep', 'House', 'Night', 'Plane', 'Brick', 'Sweet', 'Grass', 'A Smile', 'A Light', 'Crisp', 'Fairy', 'Price', 'Water', 'Cloud', 'Peach', 'Evelyn', 'Banana', 'Button', 'Sister', 'Mother', 'Father', 'Camera', 'Danger', 'Flower', 'Garden', 'Hungry', 'Jacket', 'Kitten', 'Laptop', 'Pencil', 'Rocket', 'Marker', 'Cookie', 'Dinner', 'Family', 'Window', 'Pillow', 'Jungle', 'Tigers', 'Bottle', 'Hammer', 'Tunnel', 'Jigsaw', 'Zipper', 'Oceans', 'Candle', 'Castle', 'Cattle', 'Sunset', 'Baskets', 'Cupcakes', 'Balance', 'Penguin', 'Brother', 'Bottles', 'Butters', 'Chocolate', 'Cucumber', 'Diamond', 'Giraffe', 'Meadows', 'Puzzles', 'Popcorn', 'Station', 'Rainbow', 'Sausage', 'Sweater', 'Turtles', 'Giraffe', 'Picture', 'Notebook', 'Elephants', 'Strawberries', 'Avocado', 'Villages', 'Pyjamas', 'Balloons', 'Rocking', 'Turn On', 'Turn Off', 'Go Fast', 'Go Slow', 'Look Up', 'Look Down', 'Look Left', 'Look Right', 'Move Up', 'Move Down', 'Move Left', 'Move Right', 'Jump Up', 'Jump Down', 'Jump Left', 'Jump Right'
+'Cat Box', 'Go Up', 'Hi Mom', 'By Now', 'Do It', 'Yes Sir', 'Yes Mam', 'No Mam', 'Be Cool', 'Go Fast', 'Hi Dad', 'No Way', 'So Fun', 'Be Good', 'Hi Pal', 'Go Far', 'Hi Bud', 'No Sir', 'So Bad', 'Be Safe', 'Hi Guy', 'Go Now', 'Hi Sis', 'No Thanks', 'On Top', 'Big Hat', 'My Car', 'My Dog', 'A Book', 'Act', 'Pop Tart', 'On Top', 'Bop It', 'Robotic', 'Bedtime', 'Circular', 'Rectanglular', 'Dog Bowl', 'My Mom', 'Christmas Eve', 'My Dad', 'Dig Dug', 'Pattie Cake', 'Run Away', 'Sunscreen', 'Funny Hat', 'Battlebots', 'Big Cat', 'Bug', 'Mug', 'Ben', 'Cup', 'Cut', 'A Toy', 'Box', 'Fan', 'Pot', 'Red', 'Hop', 'Pin', 'Web', 'Wet', 'Jet', 'Pig', 'Log', 'Rat', 'Ant', 'Map', 'Car', 'Book', 'Took', 'Hook', 'Aela', 'Cake', 'Take', 'Make', 'Dust', 'Rust', 'Fuss', 'Frog', 'Cats', 'Dogs', 'Logs', 'Digs', 'Suns', 'Sons', 'Hats', 'Bats', 'Bugs', 'Gift', 'Hope', 'Jump', 'A Kite', 'Lamp', 'Moon', 'Bees', 'Tree', 'Fish', 'Star', 'Rats', 'Jill', 'Phil', 'Nora', 'Ella', 'Pond', 'Ring', 'Toys', 'Snow', 'Pink', 'Bike', 'Duck', 'Ship', 'Bird', 'Windy Day', 'Wave', 'Ride', 'Apple', 'Mommy', 'Daddy', 'Brown', 'Clock', 'Dream', 'Eagle', 'Fruit', 'Green', 'Happy', 'Image', 'Jelly', 'River', 'Mouse', 'Roses', 'Quick Fox', 'Lazy Dog', 'Jumped Over', 'Bird Feather',  'Honey', 'Brush', 'Sheep', 'House', 'Night', 'Plane', 'Brick', 'Sweet', 'Grass', 'A Smile', 'A Light', 'Crisp', 'Fairy', 'Price', 'Water', 'Cloud', 'Peach', 'Evelyn', 'Banana', 'Button', 'Sister', 'Mother', 'Father', 'Camera', 'Danger', 'Flower', 'Garden', 'Hungry', 'Jacket', 'Kitten', 'Laptop', 'Pencil', 'Rocket', 'Marker', 'Cookie', 'Dinner', 'Family', 'Window', 'Pillow', 'Jungle', 'Tigers', 'Bottle', 'Hammer', 'Tunnel', 'Jigsaw', 'Zipper', 'Oceans', 'Candle', 'Castle', 'Cattle', 'Sunset', 'Baskets', 'Cupcakes', 'Balance', 'Penguin', 'Brother', 'Bottles', 'Butters', 'Chocolate', 'Cucumber', 'Diamond', 'Giraffe', 'Meadows', 'Puzzles', 'Popcorn', 'Station', 'Rainbow', 'Sausage', 'Sweater', 'Turtles', 'Giraffe', 'Picture', 'Notebook', 'Elephants', 'Strawberries', 'Avocado', 'Villages', 'Pyjamas', 'Balloons', 'Rocking', 'Turn On', 'Turn Off', 'Go Fast', 'Go Slow', 'Look Up', 'Look Down', 'Look Left', 'Look Right', 'Move Up', 'Move Down', 'Move Left', 'Move Right', 'Jump Up', 'Jump Down', 'Jump Left', 'Jump Right'
 ];
 
 // Initializing game variables
@@ -94,7 +94,7 @@ class Asteroid {
   constructor(x, y, word, image) {
     this.x = x;
     this.y = y;
-    this.width = 120;
+    this.width = 150;
     this.height = 75;
     this.speed = hardMode ? 1.4 + level * 0.6 : 0.7 + level * 0.3; // Increase speed with each level
     this.word = word;
@@ -107,8 +107,8 @@ class Asteroid {
     ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
     ctx.fillStyle = 'red';
     ctx.strokeStyle = 'black';
-    ctx.lineWidth = 1;
-    ctx.font = '22px Arial';
+    ctx.lineWidth = 1.5;
+    ctx.font = '28px Impact';
     ctx.textAlign = 'center';
 
     let textWidth = ctx.measureText(this.word).width;
@@ -169,8 +169,8 @@ function explodeAsteroid(asteroid) {
   explosionElement.style.position = 'absolute';
   explosionElement.style.left = `${asteroid.x}px`;
   explosionElement.style.top = `${asteroid.y}px`;
-  explosionElement.style.width = `${asteroid.width}px`;
-  explosionElement.style.height = `${asteroid.height}px`;
+  explosionElement.style.width = `200px`;
+  explosionElement.style.height = `100px`;
   explosionElement.innerHTML = `<img src="boom.gif" alt="Explosion">`;
 
   // Append the explosion element to the game container
