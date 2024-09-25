@@ -20,9 +20,6 @@ const pauseButton = document.getElementById('pauseButton');
 let playerImage = new Image();
 playerImage.src = 'player.png';
 
-// Variable to store selected font
-let selectedFont = 'Impact'; // Default font
-
 const asteroidImages = [
   new Image(),
   new Image(),
@@ -111,22 +108,19 @@ class Asteroid {
     ctx.fillStyle = 'red';
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 1.5;
-    ctx.font = `28px ${selectedFont}`; // Use the selected font
+    ctx.font = '28px Impact';
     ctx.textAlign = 'center';
 
     let textWidth = ctx.measureText(this.word).width;
     let xOffset = this.x + (this.width - textWidth) / 2;
     let yOffset = this.y + this.height / 2 + 10;
 
-    // Increase letter spacing for OpenDyslexic font in Normal Mode
-    let letterSpacing = selectedFont === 'OpenDyslexic' && !hardMode ? 25 : 20;
-
     for (let i = 0; i < this.word.length; i++) {
       const char = this.word[i];
       const isHighlighted = i <= this.lastHighlightedIndex;
       ctx.fillStyle = isHighlighted ? 'green' : 'red';
-      ctx.fillText(char, xOffset + i * letterSpacing, yOffset);
-      ctx.strokeText(char, xOffset + i * letterSpacing, yOffset);
+      ctx.fillText(char, xOffset + i * 20, yOffset);
+      ctx.strokeText(char, xOffset + i * 20, yOffset);
     }
   }
 
@@ -405,15 +399,15 @@ function countdown() {
   const countdownInterval = setInterval(() => {
     if (count > 0) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.font = '48px Orbitron';
-      ctx.fillStyle = 'red';
+      ctx.font = '48px Arial';
+      ctx.fillStyle = 'white';
       ctx.fillText(count, canvas.width / 2 - 20, canvas.height / 2);
       count--;
     } else {
       clearInterval(countdownInterval);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.font = '48px Orbitron';
-      ctx.fillStyle = 'green';
+      ctx.font = '48px Arial';
+      ctx.fillStyle = 'white';
       ctx.fillText('START', canvas.width / 2 - 70, canvas.height / 2);
       setTimeout(() => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -555,21 +549,6 @@ Player.prototype.shoot = function(word, targetX, targetY) {
   lasers.push(new Laser(this.x + this.width / 2, this.y, targetX, targetY, word));
   laserSound.play();
 };
-
-document.addEventListener('DOMContentLoaded', function () {
-  // Existing code
-  // ...
-
-  // Add event listeners for font selection
-  const fontOptions = document.querySelectorAll('#fontSelect .fontOption');
-  fontOptions.forEach(option => {
-    option.addEventListener('click', function () {
-      selectedFont = this.getAttribute('data-font');
-      fontOptions.forEach(opt => opt.classList.remove('selected'));
-      this.classList.add('selected');
-    });
-  });
-});
 
 // Toggle the pause state of the game
 function togglePause() {

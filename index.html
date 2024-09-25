@@ -6,15 +6,15 @@
   <title>Spaceship Typing</title>
   <link rel="stylesheet" href="styles.css">
   <!-- Include Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&family=Exo:wght@400;500;600&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&family=Exo:wght@400;500;600&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&family=Press+Start+2P&family=Arial:wght@700&family=Comic+Sans+MS:wght@700&display=swap" rel="stylesheet">
+  <!-- Include OpenDyslexic font -->
+  <link href="ODB.otf" rel="stylesheet">
 </head>
 <body>
   <div id="gameContainer">
     <div id="startScreen">
       <h1 class="floating-text">Spaceship Typing</h1>
-      <p>FOR PARENTS: The word list can be found in the file game.js and can be edited to include any other words or names you would like your children to learn!</p>
-      <p>FOR TEACHERS: This is an educational game! Ask your students to say the words as they type them, or call them out yourself!</p>
-
+      <p>HOW TO PLAY: Aliens are attempting to take over Earth! Stop them by typing the word on their spaceship, then hit Enter!</p>
       <div id="backgroundSelect">
         <h2>Choose Your Background:</h2>
         <div class="backgroundOption" data-bg="background.png">
@@ -51,6 +51,13 @@
           <img src="lock.png" alt="Lock" class="lock-overlay">
         </div>
       </div>
+<div id="fontSelect">
+  <h2>Choose Your Font:</h2>
+        <div class="fontOption impact" data-font="Impact">Impact</div>
+        <div class="fontOption arial" data-font="Arial">Arial</div>
+        <div class="fontOption comic-sans" data-font="Comic Sans MS">Comic Sans</div>
+        <div class="fontOption open-dyslexic" data-font="OpenDyslexic">OpenDyslexic</div>
+</div>
         <h2>Choose Your Difficulty:
       <button id="startButton">Normal Mode</button>
       <button id="hardModeButton" class="locked">Hard Mode</button></h2>
@@ -69,6 +76,9 @@
 <p><div class="copyright">© 2024 Christopher J. Teuton & DogTree Studios. All Rights Reserved.</div></p>
   </div>
   <div id="gameOverScreen" class="hidden">
+    <p></p>
+    <p></p>
+    <p></p>
     <h1>Game Over</h1>
     <p>Uh-oh! Looks like that wasn't quite right. That's okay, you can always do better next time!</p>
     <p>Your final score: <span id="finalScore"></span></p>
