@@ -20,6 +20,12 @@ body {
   color: white;
 }
 
+#copyright {
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
 #startScreen,
 #gameOverScreen,
 #winScreen {
@@ -68,7 +74,7 @@ body {
 #playerSelect {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .backgroundOption,
@@ -330,7 +336,7 @@ body {
 #fontSelect {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .fontOption {
