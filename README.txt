@@ -90,3 +90,75 @@ Beating Level Four:
 Beating Level Five:
    This unlocks both Background #4 (Special World) and 
    Character #4 (Good Alien)
+
+
+______________________________________________________
+
+
+2. HOW TO ADD & REMOVE WORDS
+
+This section is for parents and teachers only!
+
+If you would like to alter the word list of either Normal
+or Hard Mode, either to remove existing words or to add
+your own vocabulary terms, it's easy!
+
+-First, locate the file named "game.js" in the game folder.
+-Right-click on "game.js" and select "Open with Notepad" or
+just "Open With...", then choose "Notepad".
+-Scroll down until you see the section labeled with the 
+annotation "// Defining the words for each level" and, below
+that, "const words =["
+-This is the word list! The first 5 sections are for Normal
+Mode's five levels of difficulty, and the following section
+labeled "// Hard mode word list" is, incidentally, the word
+list for Hard mode. 
+-Feel free to add or remove words as needed! Just remember to
+inclue a single quote mark ( ' ) around each word, and don't
+forget to add a comma if you insert one into the middle of 
+the list!
+
+
+______________________________________________________
+
+
+3. CREDITS
+
+
+Concept, development, and design by
+CHRISTOPHER J. TEUTON
+
+
+Character art by
+ERIC THOMAS
+CHRISTOPHER J. TEUTON
+
+
+Playtesters
+WILLIAM CENNAMO
+CODY GRAVELLE
+EZRA GRAY
+AUSTIN KING
+ZOE MANNING
+CARMEN PORTER
+BEN TEUTON
+ERIC THOMAS
+
+
+OpenDyslexic Font Typeface by
+ABBIE GONZALEZ
+
+
+Sound effects from
+www.freesound.org
+
+
+Earth image provided by
+NASA IMAGE AND VIDEO LIBRARY
+
+
+Cinematic Battle Music (Star Wars Style) by 
+humanoide9000 
+https://freesound.org/s/685841/
+License: Attribution 4.0
+
